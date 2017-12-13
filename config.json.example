@@ -1,0 +1,8 @@
+{
+  "prefix": "?",
+  "token": "YOUR-DISCORD-BOT-TOKEN",
+
+  "ticker": {
+    "limit": 6
+  }
+}
