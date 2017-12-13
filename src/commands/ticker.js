@@ -10,7 +10,9 @@ module.exports = function (config, msg) {
 
         for (let i = 0; i < limit; i++) {
             let crypto = data[i];
-            message = message + crypto.name + ' [' + crypto.symbol + '] - ' + crypto.price_usd + '$';
+            let price = 'crypto.price_' + config['currency'].toLowerCase();
+
+            message = message + crypto.symbol + ' # ' + eval(price) + '€';
             message = message + ' (' + crypto.percent_change_1h + '% / ' + crypto.percent_change_24h + '% / ' + crypto.percent_change_7d + '%)';
             message = message + '\n';
         }

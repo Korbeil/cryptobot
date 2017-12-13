@@ -1,6 +1,7 @@
 {
   "prefix": "?",
   "token": "YOUR-DISCORD-BOT-TOKEN",
+  "currency": "USD",
 
   "ticker": {
     "limit": 6

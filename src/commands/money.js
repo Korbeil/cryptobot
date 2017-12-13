@@ -71,7 +71,9 @@ module.exports = function (command, config, msg) {
     CoinMarketCap.init(config);
     CoinMarketCap.request('ticker/' + command + '/').then(function(data) {
         let crypto = data[0];
-        let message = crypto.name + ' [' + crypto.symbol + '] - ' + crypto.price_usd + '$';
+        let price = 'crypto.price_' + config['currency'].toLowerCase();
+
+        let message = crypto.symbol + ' # ' + eval(price) + '€';
         message = message + ' (' + crypto.percent_change_1h + '% / ' + crypto.percent_change_24h + '% / ' + crypto.percent_change_7d + '%)';
         message = message + '\n';
         msg.channel.send(message);

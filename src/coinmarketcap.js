@@ -11,7 +11,7 @@ let CoinMarketCap = (function() {
         __config = config;
     };
     const request = function (method) {
-        let url     = __base + method;
+        let url     = __base + method + '?convert=' + __config['currency'];
         return _build(url);
     };
 
