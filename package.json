@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node app.js & > node.pid"
+  },
   "dependencies": {
     "discord.js": "^11.2.1"
   }
