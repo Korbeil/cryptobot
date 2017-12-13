@@ -1,20 +1,18 @@
 const https = require("https");
 
 let CoinMarketCap = (function() {
-    const base      = 'https://api.coinmarketcap.com/v1/';
-    const ticker    = 'ticker/';
-
-    let _config = null;
+    const __base    = 'https://api.coinmarketcap.com/v1/';
+    let __config    = null;
 
     /**********
      * PUBLIC *
      **********/
     const init = function(config) {
-        _config = config;
+        __config = config;
     };
-    const request = function (_method) {
-        let url     = base + eval(_method);
-        return _build(url)
+    const request = function (method) {
+        let url     = __base + method;
+        return _build(url);
     };
 
     /***********
