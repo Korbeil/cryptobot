@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "node app.js & echo $! > node.pid"
+    "start": "node app.js & echo $! > node.pid",
+    "stop": "kill -9 `cat node.pid`"
   },
   "dependencies": {
     "discord.js": "^11.2.1"
