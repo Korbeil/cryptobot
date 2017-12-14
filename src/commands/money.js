@@ -73,9 +73,50 @@ module.exports = function (command, config, msg) {
         let crypto = data[0];
         let price = 'crypto.price_' + config['currency'].toLowerCase();
 
-        let message = crypto.symbol + ' # ' + eval(price) + '€';
-        message = message + ' (' + crypto.percent_change_1h + '% / ' + crypto.percent_change_24h + '% / ' + crypto.percent_change_7d + '%)';
-        message = message + '\n';
-        msg.channel.send(message);
+        let change_1h = crypto.percent_change_1h;
+        let change_24h = crypto.percent_change_24h;
+        let change_7d = crypto.percent_change_7d;
+
+        if(change_1h.charAt(0) !== '-') {
+            change_1h = '+' + change_1h;
+        }
+        if(change_24h.charAt(0) !== '-') {
+            change_24h = '+' + change_24h;
+        }
+        if(change_7d.charAt(0) !== '-') {
+            change_7d = '+' + change_7d;
+        }
+
+        const embed = {
+            "color": 13843783,
+            "timestamp": "2017-12-13T08:39:30.980Z",
+            "author": {
+                "name": crypto.symbol,
+                "url": "https://coinmarketcap.com/currencies/" + crypto.id + "/",
+                "icon_url": "https://coinmarketcap.com/favicon.ico"
+            },
+            "fields": [
+                {
+                    "name": "Value (" + config['currency'] + ")",
+                    "value": eval(price) + '€'
+                },
+                {
+                    "name": "1h diff",
+                    "value": change_1h,
+                    "inline": true
+                },
+                {
+                    "name": "24h diff",
+                    "value": change_24h,
+                    "inline": true
+                },
+                {
+                    "name": "7d change",
+                    "value": change_7d,
+                    "inline": true
+                }
+            ]
+        };
+        msg.channel.send({ embed });
     });
 };
