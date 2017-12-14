@@ -102,17 +102,17 @@ module.exports = function (command, config, msg) {
                 },
                 {
                     "name": "1h diff",
-                    "value": change_1h,
+                    "value": change_1h + '%',
                     "inline": true
                 },
                 {
                     "name": "24h diff",
-                    "value": change_24h,
+                    "value": change_24h + '%',
                     "inline": true
                 },
                 {
                     "name": "7d change",
-                    "value": change_7d,
+                    "value": change_7d + '%',
                     "inline": true
                 }
             ]
