@@ -98,8 +98,7 @@ module.exports = function (command, config, msg) {
             "fields": [
                 {
                     "name": "Value (" + config['currency'] + ")",
-                    "value": eval(price) + '€',
-                    "inline": true
+                    "value": eval(price) + '€'
                 },
                 {
                     "name": "1h diff",
